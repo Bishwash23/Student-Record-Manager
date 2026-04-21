@@ -10,6 +10,7 @@ def main():
             choice = int(input("Enter your choice: "))
         except ValueError:
             print("Invalid choice")
+            continue
         
         match choice:
             case 1:
@@ -44,7 +45,7 @@ def add_student():
         return
     data = load()
     if any(item["student_id"] == student_id for item in data):
-        print(f"Student with {student_id} already exist")
+        print(f"Student with {student_id} already exists")
     
     name = input("Student name: ")
     try:
@@ -61,7 +62,7 @@ def search_student():
     student = next((item for item in data if item["student_id"] == student_id), None)
     if student:
         print("\nStudent details\n")
-        print(f"{student_id} | {student["name"]} | {student["marks"]}\n")
+        print(f"{student_id} | {student['name']} | {student['marks']}\n")
     else:
         print("Student not found")
 
@@ -71,7 +72,7 @@ def update_marks():
     student = next((item for item in data if item["student_id"] == student_id), None)
     if student:
         print("\nStudent details\n")
-        print(f"{student_id} | {student["name"]} | {student["marks"]}\n")
+        print(f"{student_id} | {student['name']} | {student['marks']}\n")
         try:
             marks = int(input("New marks: "))
         except ValueError:
@@ -79,14 +80,14 @@ def update_marks():
             return
         student["marks"] = marks
         save(data)
-        print(f"\nUpdated: {student_id} | {student["name"]} | {student["marks"]}\n")
+        print(f"\nUpdated: {student_id} | {student['name']} | {student['marks']}\n")
     else:
         print("Student not found")
 
 def delete_record():
     student_id = input("Student ID: ")
     data = load()
-    new_data = [item for item in data if item["student_id" != student_id]]
+    new_data = [item for item in data if item["student_id"] != student_id]
     if len(new_data) == len(data):
         print("Student not found")
         return
