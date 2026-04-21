@@ -55,6 +55,15 @@ def add_student():
     data.append({"student_id":student_id, "name":name, "marks":marks})
     save(data)
 
+def search_student():
+    student_id = input("Student ID: ")
+    data = load()
+    for item in data:
+        if item["student_id"] == student_id:
+            name = item["name"]
+            marks = item["marks"]
+            print("\nStudent details\n")
+            print(f"{student_id} | {name} | {marks}")
 
 
 
