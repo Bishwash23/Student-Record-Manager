@@ -2,6 +2,16 @@
     {
         "student_id": "101",
         "name": "bishwash bhattarai",
-        "marks": 100
+        "marks": 140
+    },
+    {
+        "student_id": "102",
+        "name": "test 1",
+        "marks": 90
+    },
+    {
+        "student_id": "103",
+        "name": "test 2",
+        "marks": 90
     }
 ]
